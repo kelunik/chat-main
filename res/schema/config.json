@@ -1,0 +1,162 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "/",
+  "type": "object",
+  "properties": {
+    "app": {
+      "id": "app",
+      "type": "object",
+      "properties": {
+        "name": {
+          "id": "name",
+          "type": "string"
+        },
+        "host": {
+          "id": "host",
+          "type": "string"
+        },
+        "port": {
+          "id": "port",
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "https": {
+          "id": "https",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "host",
+        "port",
+        "https"
+      ]
+    },
+    "database": {
+      "id": "database",
+      "type": "object",
+      "properties": {
+        "name": {
+          "id": "name",
+          "type": "string"
+        },
+        "host": {
+          "id": "host",
+          "type": "string"
+        },
+        "user": {
+          "id": "user",
+          "type": "string"
+        },
+        "pass": {
+          "id": "pass",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "redis": {
+      "id": "redis",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "id": "protocol",
+          "enum": [
+            "unix",
+            "tcp"
+          ]
+        },
+        "host": {
+          "id": "host",
+          "type": "string"
+        },
+        "port": {
+          "id": "port",
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        }
+      },
+      "additionalProperties": false
+    },
+    "elastic": {
+      "id": "elastic",
+      "type": "object",
+      "properties": {
+        "host": {
+          "id": "host",
+          "type": "string"
+        },
+        "port": {
+          "id": "port",
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        }
+      },
+      "additionalProperties": false
+    },
+    "api": {
+      "id": "api",
+      "type": "object",
+      "properties": {
+        "github": {
+          "id": "github",
+          "type": "object",
+          "properties": {
+            "id": {
+              "id": "id",
+              "type": "string"
+            },
+            "secret": {
+              "id": "secret",
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "stack-exchange": {
+          "id": "stack-exchange",
+          "type": "object",
+          "properties": {
+            "id": {
+              "id": "id",
+              "type": "integer",
+              "minimum": 1
+            },
+            "key": {
+              "id": "key",
+              "type": "string"
+            },
+            "secret": {
+              "id": "secret",
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "trello": {
+          "id": "trello",
+          "type": "object",
+          "properties": {
+            "key": {
+              "id": "key",
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true,
+  "required": [
+    "app",
+    "database",
+    "redis",
+    "api"
+  ]
+}
